@@ -1,0 +1,49 @@
+// layout mixins
+
+@mixin flex-spacebetween{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-row{
+    display: flex;
+}
+
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin section-text{
+    @include flex-center;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "secondary-font";
+}
+
+@mixin tumbnail{
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 2px 2px 10px $color_medium_gray;
+}
+
+// base styles
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 75%;
+    margin: 0 auto;
+}
+
+.section-padding{
+    padding: 50px 0;
+}
+
