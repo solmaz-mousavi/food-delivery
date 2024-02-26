@@ -1,0 +1,64 @@
+@import 'base';
+@import 'fonts';
+@import 'layouts';
+@import 'links';
+@import 'icons';
+@import 'header';
+@import 'navbar';
+@import 'footer';
+
+// title styles
+.title{
+    position: relative;
+    top: -30px;
+    width: 100%;
+    height: 300px;
+    background-image: url(../images/slider/home-slide-1.jpg);
+    background-size: cover;
+
+    .title-text{
+        @include section-text;
+        height: 100%;
+        color: #fff;
+
+        h1{ 
+            font-size: $font_size_lg;
+        }
+        p{  
+            font-size: $font_size_md;
+            font-family: "primary-font";
+        }
+    }
+}
+// End title styles
+
+// Products styles
+.products-container{
+    @include flex-center;
+    gap: 40px;
+    flex-wrap: wrap;
+    background-image: url(../images/bg-title.jpg);
+    background-size: cover;
+    border-radius: 30px;
+
+    .product-tumbnail{
+        width: 400px;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border:2px solid rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        color: #fff;
+        font-family: "primary-font";
+
+        .product-tumbnail-top{
+            @include flex-spacebetween;
+
+            .product-img{
+                height: 120px;
+                object-fit: cover;
+            }
+        }
+    }
+}
+

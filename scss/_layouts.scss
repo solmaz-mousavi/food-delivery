@@ -47,3 +47,15 @@
     padding: 50px 0;
 }
 
+.section-text{
+    @include section-text;
+    h3,
+    h1{
+        font-size: $font_size_lg;
+    }
+    p{
+        font-family: "primary-font";
+        color: $color_medium_gray;
+    }
+}
+

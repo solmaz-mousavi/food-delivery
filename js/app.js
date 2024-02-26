@@ -1,21 +1,9 @@
 // select elements - variables
-const navbarElem = document.querySelector('.navbar');
-const menuTumbnailElem = document.querySelectorAll('.menu-tumbnail');
-
+const menuContainer = document.querySelector('.menu-container')
+const productGroup = data.product_group;
 
 // functions
-function ChangeScrollY(){
-    let verticalScroll = document.documentElement.scrollTop;
-
-   if (verticalScroll > 100) {
-    console.log('paeen')
-    navbarElem.classList.add('navbar-sticky')
-    } else{
-       console.log('bala')
-    navbarElem.classList.remove('navbar-sticky')
-   }
-}
-
+// menu tumbnail hover style handlers
 function mouseEnterHandler(event){
     let captionElem = event.target.children[1];
     let titleElem = captionElem.children[0];
@@ -30,8 +18,31 @@ function mouseLeaveHandler(event){
     titleElem.classList.remove('menu-title-hover')
 }
 
-// menu hover style handler
-menuTumbnailElem.forEach(function(item){
-    item.addEventListener('mouseenter', mouseEnterHandler);
-    item.addEventListener('mouseleave', mouseLeaveHandler);
-})
+// creating menu tumbnails
+for (let i = 0; i < productGroup.length; i++) {
+  
+    const menuTmbElem = document.createElement('div');
+    menuTmbElem.className = 'menu-tumbnail';
+
+    const menuImgElem = document.createElement('img')
+    menuImgElem.setAttribute('src', productGroup[i].group_img)
+    menuImgElem.className = 'menu-img'
+
+    const menuCapElem = document.createElement('div')
+    menuCapElem.className = 'menu-caption'
+
+    const menuLinkElem = document.createElement('a')
+    menuLinkElem.setAttribute('href','./pages/menu.html?group_id=' + productGroup[i].group_id)
+    menuLinkElem.innerText = productGroup[i].group_title
+    menuLinkElem.className = 'menu-title'
+    
+    menuCapElem.appendChild(menuLinkElem)
+    menuTmbElem.appendChild(menuImgElem)
+    menuTmbElem.appendChild(menuCapElem)
+    menuContainer.appendChild(menuTmbElem)
+
+    // menu tumbnail hover style handler
+    menuTmbElem.addEventListener('mouseenter', mouseEnterHandler);
+    menuTmbElem.addEventListener('mouseleave', mouseLeaveHandler);
+}
+
