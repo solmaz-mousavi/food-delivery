@@ -1,50 +1,75 @@
-// select elements - variables
+// select page elements and variables-------------------------------------------------------
 const productsContainer = document.querySelector('.products-container')
 const titleElem = document.querySelector('.title-text h1')
 const pathElem = document.querySelector('.title-text p')
 const groupID = new URLSearchParams(window.location.search).get('group_id')
-const productList = data.product_group[groupID-1].product_list;
 
-// Creating page title
-titleElem.innerHTML = data.product_group[groupID-1].group_title
-pathElem.innerHTML = 'خانه --> منو --> ' + data.product_group[groupID-1].group_title
+
+// functions--------------------------------------------------------------------------------
+// page title handler
+function titleHandler(productGroup){
+    const groupTitle = productGroup.group_title;
+    titleElem.innerHTML = groupTitle;
+    pathElem.innerHTML = 'خانه &#8592; منو &#8592; ' + groupTitle;
+}
 
 // creating product list tumbnails
-for (let i = 0; i < productList.length; i++) {
+function productTmbHandler(productGroup){
 
-    const productTmbElem = document.createElement('div');
-    productTmbElem.className = 'product-tumbnail';
+    const productList = productGroup.product_list;
 
-    const productTmbTopElem = document.createElement('div');
-    productTmbTopElem.className = 'product-tumbnail-top';
+    for (let i = 0; i < productList.length; i++) {
 
-    const productCapElem = document.createElement('div');
-    productCapElem.className = 'product-caption';
+        const productTmbElem = document.createElement('div');
+        productTmbElem.className = 'product-tumbnail';
     
-    const productTitleElem = document.createElement('h3');
-    productTitleElem.innerText = productList[i].product_name;
+        const productTmbTopElem = document.createElement('div');
+        productTmbTopElem.className = 'product-tumbnail-top';
     
-    const productPriceElem = document.createElement('p');
-    productPriceElem.innerText = productList[i].product_price /1000 + ',000 ' + ' تومان';
+        const productCapElem = document.createElement('div');
+        productCapElem.className = 'product-caption';
+        
+        const productTitleElem = document.createElement('h3');
+        productTitleElem.innerText = productList[i].product_name;
+        
+        const productPriceElem = document.createElement('p');
+        productPriceElem.innerText = productList[i].product_price /1000 + ',000 ' + ' تومان';
+        
+        const productImgElem = document.createElement('img');
+        productImgElem.setAttribute('src',productList[i].product_img);
+        productImgElem.className = 'product-img';
     
-    const productImgElem = document.createElement('img');
-    productImgElem.setAttribute('src',productList[i].product_img);
-    productImgElem.className = 'product-img';
+        const productDetailsElem = document.createElement('p');
+        productDetailsElem.innerText = [...productList[i].product_cntnr];
+    
+    
+        productCapElem.appendChild(productTitleElem);
+        productCapElem.appendChild(productPriceElem);
+    
+        productTmbTopElem.appendChild(productCapElem);
+        productTmbTopElem.appendChild(productImgElem);
+    
+        productTmbElem.appendChild(productTmbTopElem);
+        productTmbElem.appendChild(productDetailsElem);
+    
+        productsContainer.appendChild(productTmbElem);
+    }
+}
 
-    const productDetailsElem = document.createElement('p');
-    productDetailsElem.innerText = [...productList[i].product_cntnr];
+// insert json file data--------------------------------------------------------------------
+let requestURL = 'https://raw.githubusercontent.com/solmaz-mousavi/food-delivery/master/data.json';
+let request = new XMLHttpRequest();
 
+request.open('GET', requestURL , true);
+request.responseType = 'json';
+request.send();
 
-    productCapElem.appendChild(productTitleElem);
-    productCapElem.appendChild(productPriceElem);
+request.onload = function(){
 
-    productTmbTopElem.appendChild(productCapElem);
-    productTmbTopElem.appendChild(productImgElem);
+    const productGroup = request.response.product_group[groupID-1];
 
-    productTmbElem.appendChild(productTmbTopElem);
-    productTmbElem.appendChild(productDetailsElem);
-
-    productsContainer.appendChild(productTmbElem);
+    titleHandler(productGroup)
+    productTmbHandler(productGroup)
 }
 
 

@@ -1,4 +1,4 @@
-const data={
+{
     "product_group":[
         {"group_id":1,
         "group_title":"سوشی",
@@ -193,7 +193,4 @@ const data={
             ]    
         }
     ]
-};
-
-// export {data};
-
+}
