@@ -49,7 +49,7 @@ function menuTmbHandler(productGroup){
 }
 
 // insert json file data-------------------------------------------------------------------
-let requestURL = 'https://raw.githubusercontent.com/solmaz-mousavi/food-delivery/master/data.json';
+let requestURL = 'https://raw.githubusercontent.com/solmaz-mousavi/data-json-files/master/foodDelivery-productsData.json';
 let request = new XMLHttpRequest();
 console.log(request);
 
