@@ -2,7 +2,7 @@
 const productsContainer = document.querySelector('.products-container')
 const titleElem = document.querySelector('.title-text h1')
 const pathElem = document.querySelector('.title-text p')
-const groupID = new URLSearchParams(window.location.search).get('group_id')
+const groupIndex = new URLSearchParams(window.location.search).get('group')
 
 
 // functions--------------------------------------------------------------------------------
@@ -16,7 +16,7 @@ function titleHandler(productGroup){
 // creating product list tumbnails
 function productTmbHandler(productGroup){
 
-    const productList = productGroup.product_list;
+    const productList = productGroup.group_products;
 
     for (let i = 0; i < productList.length; i++) {
 
@@ -29,18 +29,19 @@ function productTmbHandler(productGroup){
         const productCapElem = document.createElement('div');
         productCapElem.className = 'product-caption';
         
-        const productTitleElem = document.createElement('h3');
+        const productTitleElem = document.createElement('a');
         productTitleElem.innerText = productList[i].product_name;
+        productTitleElem.setAttribute('href','../pages/product_details.html?group=' + groupIndex + '&product=' + i);
         
         const productPriceElem = document.createElement('p');
-        productPriceElem.innerText = productList[i].product_price /1000 + ',000 ' + ' تومان';
+        productPriceElem.innerText = productList[i].product_price[0] /1000 + ',000 ' + ' تومان';
         
         const productImgElem = document.createElement('img');
-        productImgElem.setAttribute('src',productList[i].product_img);
+        productImgElem.setAttribute('src',productList[i].product_image[0]);
         productImgElem.className = 'product-img';
     
         const productDetailsElem = document.createElement('p');
-        productDetailsElem.innerText = [...productList[i].product_cntnr];
+        productDetailsElem.innerText = [...productList[i].product_content];
     
     
         productCapElem.appendChild(productTitleElem);
@@ -66,8 +67,7 @@ request.send();
 
 request.onload = function(){
 
-    const productGroup = request.response.product_group[groupID-1];
-
+    const productGroup = request.response.product_group[groupIndex];
     titleHandler(productGroup)
     productTmbHandler(productGroup)
 }

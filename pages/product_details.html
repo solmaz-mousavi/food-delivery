@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>منو</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/product_details.css">
 </head>
 <body onscroll="ChangeScrollY()">
     <!-- Header -->
@@ -53,8 +53,8 @@
             <ul>
                 <li><a href="../index.html" class="navbar-link">خانه</a></li>
                 <li><a href="#" class="navbar-link">درباره ما</a></li>
-                <li><a href="#" class="navbar-link active">منو</a></li>
-                <li><a href="#" class="navbar-link">جزئیات محصول</a></li>
+                <li><a href="#" class="navbar-link">منو</a></li>
+                <li><a href="#" class="navbar-link active">جزئیات محصول</a></li>
                 <li><a href="#" class="navbar-link">گالری</a></li>
                 <li><a href="#" class="navbar-link">تماس با ما</a></li>
                 <li><a href="#" class="navbar-link">اخبار</a></li>
@@ -80,12 +80,56 @@
     <!-- End Title -->
 
     <!-- products -->
-    <section class="container section-padding products-container">
+    <section class="container section-padding product-container">
+        <div class="product-container-right">
+            <div class="product-container-largeimage"></div>
+            <div class="product-container-smallimages"></div>
+        </div>
+
+        <div class="product-container-left">
+            <div class="product-title">
+                <div>
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div>
+                    <p class="badge">خوشمزه</p>
+                </div>
+            </div>
+
+            <ul class="product-price-container"></ul>
+
+            <div class="product-energy-container">
+                <p>ارزش انرژی</p>
+                <div class="product-energy">
+                    <div id="energy" data-to="0"></div>
+                    <div>500 کیلو کالری</div>
+                </div>
+                
+                <p>پروتئین ها</p>
+                <div class="product-protein">
+                    <div id="protein" data-to="0"></div>
+                    <div>200 گرم</div>
+                </div>
+            </div>
+
+            <div class="shopcart">
+
+                <div class="number">
+                    <span id="plus">+</span>
+                    <input type="number" id="number" data-zeros="true" value="1" min="1" max="20" readonly="">
+                    <span id="minus">-</span>
+                </div>
+
+                <button>افزودن به سبد خرید</button>
+            </div>
+
+        </div>
 
     </section>
     <!-- End Menu -->
     
     <script src="../js/general.js"></script>
-    <script src="../js/menu.js"></script>
+    <script src="../js/product_details.js"></script>
 </body>
 </html>

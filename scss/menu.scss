@@ -7,31 +7,6 @@
 @import 'navbar';
 @import 'footer';
 
-// title styles
-.title{
-    position: relative;
-    top: -30px;
-    width: 100%;
-    height: 300px;
-    background-image: url(../images/slider/home-slide-1.jpg);
-    background-size: cover;
-
-    .title-text{
-        @include section-text;
-        height: 100%;
-        color: #fff;
-
-        h1{ 
-            font-size: $font_size_lg;
-        }
-        p{  
-            font-size: $font_size_md;
-            font-family: "primary-font";
-        }
-    }
-}
-// End title styles
-
 // Products styles
 .products-container{
     @include flex-center;
@@ -53,6 +28,14 @@
 
         .product-tumbnail-top{
             @include flex-spacebetween;
+            .product-caption a{
+                @include reset-links;
+                color: #fff;
+                font-size: $font_size_md;
+                &:hover{
+                    color: $color_light_primary;
+                }
+            }
 
             .product-img{
                 height: 120px;

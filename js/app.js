@@ -26,14 +26,14 @@ function menuTmbHandler(productGroup){
         menuTmbElem.className = 'menu-tumbnail';
     
         const menuImgElem = document.createElement('img');
-        menuImgElem.setAttribute('src', productGroup[i].group_img);
+        menuImgElem.setAttribute('src', productGroup[i].group_image);
         menuImgElem.className = 'menu-img';
     
         const menuCapElem = document.createElement('div');
         menuCapElem.className = 'menu-caption';
     
         const menuLinkElem = document.createElement('a');
-        menuLinkElem.setAttribute('href','./pages/menu.html?group_id=' + productGroup[i].group_id);
+        menuLinkElem.setAttribute('href','./pages/menu.html?group=' + i);
         menuLinkElem.innerText = productGroup[i].group_title;
         menuLinkElem.className = 'menu-title';
         
@@ -51,7 +51,6 @@ function menuTmbHandler(productGroup){
 // insert json file data-------------------------------------------------------------------
 let requestURL = 'https://raw.githubusercontent.com/solmaz-mousavi/data-json-files/master/foodDelivery-productsData.json';
 let request = new XMLHttpRequest();
-console.log(request);
 
 request.open('GET', requestURL , true);
 request.responseType = 'json';
@@ -59,6 +58,6 @@ request.send();
 
 request.onload = function(){
     var datajs = request.response.product_group;
-    console.log(datajs);
+    console.log(request.response)
     menuTmbHandler(datajs);
 }
