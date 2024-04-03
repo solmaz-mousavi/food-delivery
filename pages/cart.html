@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منو</title>
+    <title>سبد خرید</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body onscroll="ChangeScrollY()">
+
     <!-- Header -->
     <header class="container header">
         <div class="header-right">
@@ -53,7 +54,7 @@
             <ul>
                 <li><a href="../index.html" class="navbar-link">خانه</a></li>
                 <li><a href="#" class="navbar-link">درباره ما</a></li>
-                <li><a href="#" class="navbar-link active">منو</a></li>
+                <li><a href="#" class="navbar-link">منو</a></li>
                 <li><a href="#" class="navbar-link">جزئیات محصول</a></li>
                 <li><a href="#" class="navbar-link">گالری</a></li>
                 <li><a href="#" class="navbar-link">تماس با ما</a></li>
@@ -61,7 +62,7 @@
             </ul>
         </div>
         <div class="navbar-left">
-            <a href="../pages/cart.html">
+            <a href="#">
                 <i class="fa-solid fa-cart-shopping navbar-icon"></i>
                 <span class="cart-number"></span>
             </a>
@@ -70,22 +71,23 @@
     </nav>
     <!-- End Navbar -->
 
-    <!-- Title -->
-    <section class="section-padding title">
-        <div class="title-text">
-            <h1></h1>
-            <p></p>
+    <!-- cart -->
+    <section class="container section-padding">
+        <div class="cart-title">
+            <h3><span></span> مورد در سبد خرید</h3>
+            <a href="../index.html">برگشت</a>
         </div>
-    </section>
-    <!-- End Title -->
 
-    <!-- products -->
-    <section class="container section-padding products-container">
+        <div class="cart-container"></div>
+
+        <div class="cart-total">
+            <h3> جمع کل <span></span> تومان </h3>
+        </div>
 
     </section>
-    <!-- End Menu -->
+    <!-- End cart -->
     
     <script src="../js/general.js"></script>
-    <script src="../js/menu.js"></script>
+    <script src="../js/cart.js"></script>
 </body>
 </html>

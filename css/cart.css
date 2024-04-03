@@ -190,101 +190,44 @@
   padding: 10px calc(12.5% + 50px);
 }
 
-.product-container {
+.cart-title {
   display: flex;
-}
-.product-container .product-container-right .product-container-largeimage {
-  width: 450px;
-  height: 450px;
-  overflow: hidden;
-}
-.product-container .product-container-right .product-container-largeimage img {
-  width: 100%;
-  height: 100%;
-}
-.product-container .product-container-right .product-container-smallimages {
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: 4px solid #9b9b9b;
 }
-.product-container .product-container-right .product-container-smallimages img {
-  width: 100px;
-  margin: 10px;
-  padding: 5px;
-  border: 1px solid rgb(211, 211, 214);
-  border-radius: 5px;
-  cursor: pointer;
+.cart-title h3 {
+  font-family: "primary-font";
+  font-size: 1.5rem;
 }
-.product-container .product-container-left {
-  margin: 40px;
-  width: 100%;
+.cart-title a {
+  text-decoration: none;
+  font-family: "primary-font";
+  color: rgb(43, 44, 47);
+}
+
+.cart-container .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px;
   font-family: "primary-font";
 }
-.product-container .product-container-left .product-title {
-  display: flex;
-  gap: 50px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid rgb(211, 211, 214);
+.cart-container .cart-item .item-image img {
+  width: 130px;
 }
-.product-container .product-container-left .product-title h3 {
-  font-size: 2rem;
-}
-.product-container .product-container-left .product-title p {
-  color: #9b9b9b;
-}
-.product-container .product-container-left .product-title .badge {
-  color: #fff;
-  background-color: rgb(241, 97, 33);
-  padding: 10px;
-}
-.product-container .product-container-left .product-price-container {
-  padding: 20px 0px;
-}
-.product-container .product-container-left .product-price-container li {
-  display: flex;
-  gap: 20px;
-  color: rgb(241, 97, 33);
-  font-size: 1.2rem;
-}
-.product-container .product-container-left .product-price-container li .discount-price {
-  text-decoration: line-through;
-}
-.product-container .product-container-left .product-price-container li .product-type {
-  color: #fff;
-  background-color: rgb(236, 182, 159);
-  border-radius: 50%;
-  padding: 5px;
-}
-.product-container .product-container-left .product-price-container li .product-type:hover {
+.cart-container .cart-item .item-remove:hover {
   cursor: pointer;
-  background-color: rgb(241, 97, 33);
 }
-.product-container .product-container-left .product-energy-container p {
-  color: #9b9b9b;
-}
-.product-container .product-container-left .product-energy-container .product-energy,
-.product-container .product-container-left .product-energy-container .product-protein {
+
+.cart-total {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding-left: 20px;
-  border: 1px solid rgb(211, 211, 214);
-  border-radius: 20px;
+  justify-content: end;
+  padding: 0px 30px;
+  border-top: 4px solid #9b9b9b;
 }
-.product-container .product-container-left .product-energy-container .product-energy #energy,
-.product-container .product-container-left .product-energy-container .product-energy #protein,
-.product-container .product-container-left .product-energy-container .product-protein #energy,
-.product-container .product-container-left .product-energy-container .product-protein #protein {
-  color: #fff;
-  background-color: rgb(241, 97, 33);
-  width: 32%;
-  border-radius: 20px;
-  padding-right: 20px;
-}
-.product-container .product-container-left .shopcart {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5%;
-}/*# sourceMappingURL=product_details.css.map */
+.cart-total h3 {
+  font-family: "primary-font";
+  font-size: 1.5rem;
+  color: rgb(43, 44, 47);
+}/*# sourceMappingURL=cart.css.map */

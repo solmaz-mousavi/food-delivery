@@ -58,6 +58,5 @@ request.send();
 
 request.onload = function(){
     var datajs = request.response.product_group;
-    console.log(request.response)
     menuTmbHandler(datajs);
 }

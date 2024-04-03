@@ -1,11 +1,11 @@
-// select page elements and variables-------------------------------------------------------
+// select page elements and variables----------------------------------------------------------
 const productsContainer = document.querySelector('.products-container')
 const titleElem = document.querySelector('.title-text h1')
 const pathElem = document.querySelector('.title-text p')
 const groupIndex = new URLSearchParams(window.location.search).get('group')
 
 
-// functions--------------------------------------------------------------------------------
+// functions-----------------------------------------------------------------------------------
 // page title handler
 function titleHandler(productGroup){
     const groupTitle = productGroup.group_title;
@@ -13,7 +13,7 @@ function titleHandler(productGroup){
     pathElem.innerHTML = 'خانه &#8592; منو &#8592; ' + groupTitle;
 }
 
-// creating product list tumbnails
+// creating product list tumbnails ------------------------------------------------------------
 function productTmbHandler(productGroup){
 
     const productList = productGroup.group_products;
@@ -57,7 +57,7 @@ function productTmbHandler(productGroup){
     }
 }
 
-// insert json file data--------------------------------------------------------------------
+// insert json file data-------------------------------------------------------------------
 let requestURL = 'https://raw.githubusercontent.com/solmaz-mousavi/data-json-files/master/foodDelivery-productsData.json';
 let request = new XMLHttpRequest();
 
