@@ -7,7 +7,9 @@ const totalPriceElem = document.querySelector('.cart-total span');
 // cart item quantity changer buttons -------------------------------------
 const plusHandler = event => {
     const cartId = event.target.parentElement.parentElement.id;
+    console.log(cartId);
     let cartIndex = cart.findIndex(item => item.id === cartId);
+    console.log(cartIndex);
 
     cart[cartIndex].qty ++;
     localStorage.setItem('shopCart',JSON.stringify(cart))
